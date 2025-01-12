@@ -42,6 +42,10 @@ header {
     text-align: center;
 }
 
+header h1{
+    color: gainsboro;
+}
+
 header,
 main {
     margin: 0 auto;
