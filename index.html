@@ -10,28 +10,27 @@
         Portifolio">
     <meta name="author" content="Tiago Neves Sousa">
     <link rel="stylesheet" href="styles/base.css">
-    <script src="scripts/getdates.js"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;1,100;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-<title>WDD 131 - Dynamic Web Fundamentals - Tiago Neves</title>
+    
+    <script defer src="scripts/getdates.js"></script>
+    <title>WDD 131 - Dynamic Web Fundamentals - Tiago Neves</title>
 </head>
 <body>
     <header>
         <h1>WDD 131 - Dynamic Web Fundamentals - Tiago Neves</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/tiago--neves/" target="_blank">Linkedin</a></li>
-            <li><a href="https://byupw.instructure.com/">Canvas</a></li>
-            <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7">Scripture</a></li>
-            <li><a href="">Final Project</a></li>
-        </ul>
         
-    </nav>
-   
+        <nav>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/tiago--neves/" target="_blank">Linkedin</a></li>
+                <li><a href="https://byupw.instructure.com/">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7">Scripture</a></li>
+                <li><a href="">Final Project</a></li>
+            </ul>
+            
+        </nav>
+    </header>
     <main>
         <section class="card">
            <h2>About Me</h2>
@@ -42,24 +41,29 @@
                         I am a motivated and innovative software developer with over 9 years of experience. My passion is creating new knowledge and finding innovative solutions to challenges. 
                         I have solid experience in Angular, HTML, CSS, Javascript, Jquery, ASP.NET, OOP programming, MVC, NET Framework, NET CORE and SQL SERVER and agile methodologies.           
                      </p>
-                     <img src="images/Capa-perfil.jpg" placeholder="Profile Picture"  width="90%" height="auto"/>
+                     <img src="images/capa-perfil.webp" alt="Profile Picture"/>
                 </div>
                 <div class="myhomestate">
-                    <h3>Minas Gerais, Brazil</h2>
-                        
-                    <img src="images/mg-br.webp" alt="Minas Gerais Brazilian State Flag" width="30" height="30">
-                    <span> Official flag from Minas Gerais Brazil</span>
-                    <p>
-                        Pão de Queijo is a beloved Brazilian cheese bread from Minas Gerais, known for its chewy texture and cheesy flavor, made from tapioca flour, cheese (often Minas cheese), eggs, and milk. This delightful snack is enjoyed throughout Brazil, typically served at breakfast or as a treat, and reflects the region's culinary heritage influenced by Indigenous and Portuguese traditions.
-                        Minas Gerais boasts a rich colonial history, visible in its architecture and towns like Ouro Preto and Tiradentes. The state's cuisine includes not just Pão de Queijo but also dishes like feijão tropeiro and tutu de feijão.
-                        The people of Minas Gerais are known for their warm hospitality and strong community ties, often gathering for meals and celebrations. 
-                    </p>
+                    <h3>Minas Gerais, Brazil</h3>
+                      <div class="line"></div> 
+                        <div class="body">
+                            <figure>
+                                <img src="images/mg-br.webp" alt="Minas Gerais Brazilian State Flag">
+                                <figcaption>Flag from the State of Minas Gerais Brazil</figcaption>
+                            </figure>
+                            
+                                <p>
+                                    Pão de Queijo is a beloved Brazilian cheese bread from Minas Gerais, known for its chewy texture and cheesy flavor, made from tapioca flour, cheese (often Minas cheese), eggs, and milk. This delightful snack is enjoyed throughout Brazil, typically served at breakfast or as a treat, and reflects the region's culinary heritage influenced by Indigenous and Portuguese traditions.
+                                    Minas Gerais boasts a rich colonial history, visible in its architecture and towns like Ouro Preto and Tiradentes. The state's cuisine includes not just Pão de Queijo but also dishes like feijão tropeiro and tutu de feijão.
+                                    The people of Minas Gerais are known for their warm hospitality and strong community ties, often gathering for meals and celebrations. 
+                                </p>
+                        </div>
                 </div>
             </div>
         </section>
         <section class="card">
-            <div class="head-card"><h2>About Me</h2>
-            <div class="body-card">
+            <div class="head-card"><h2>Web Dev Resourses</h2></div>
+            <div class="body-card-web-resources">
                 <ul>
                     <li><a target="_blank" href="https://cssgradient.io/">CSS Get color code</a></li>
                     <li><a target="_blank" href="https://flexboxfroggy.com/">FlexBox Froggy</a></li>
@@ -72,8 +76,8 @@
         </section>
     </main>
     <footer>
-        <p>©<span id="currentyear">2024</span> 🏀 Tiago Neves 🏀 Brazil</p>
-        <p id="lastModified">Last Modification: </p>
+        <p>©<span id="currentyear"></span> 🏀 Tiago Neves 🏀 Brazil</p>
+        <div id="lastModified">Last Modification: </div>
     </footer>
 </body>
 </html>
