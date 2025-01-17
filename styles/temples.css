@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(2, 0, 36);
+    --primary-hover-color: #088fd8;
+    --secondary-color: #FCBF49;
+    --accent1-color: #EAE2B7;
+    --accent2-color: #F77F00;
+
+    --heading-font: "Poppins", serif;
+    --paragraph-font: 'Oswald', sans-serif;
+
+    --nav-background-color: rgb(2, 0, 36);
+    --nav-link-color: White;
+    --nav-hover-link-color: #FCBF49;
+    --nav-hover-background-color: #eae2b7;
+    --max-width: 880px
+}
+
+
+
+body {
+    font-family: var(--heading-font);
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+
+h1 {
+    font-weight: 100;
+}
+
+header {
+    margin: 0 auto;
+    text-align: left;
+    max-width: var(--max-width);
+    padding: 10px;
+}
+
+header h1{
+    color: gainsboro;
+}
+
+header,
+main {
+    margin: 0 auto;
+}
+
+nav, header {
+    background-color: var(--nav-background-color);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.navigation a {
+    display: none;
+    color: var(--nav-link-color);
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+
+.navigation a:link,
+.navigation a:visited {
+    color: var(--nav-link-color);
+}
+
+.navigation a:hover {
+    color: var(--nav-hover-link-color);
+    background-color: var(--nav-hover-background-color);
+}
+
+.active {
+    color: var(--nav-hover-link-color);
+}
+
+img{
+    width: 90%;
+    height: auto;
+}
+
+
+
+main {
+	margin: 0 auto;
+    max-width: var(--max-width);
+    margin-top: 20px;
+}
+
+main h1{
+    text-align: center;
+    padding: 5px;
+}
+
+.album{
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid rgb(0 0 0 / 0.1);
+	padding: 1rem;
+}
+
+figcaption{
+    text-align: center;
+    padding: 5px;
+}
+
+
+footer{
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 4%, rgba(97, 97, 231, 0.9864320728291317) 48%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+}
+
+#lastModified{
+    color: yellow;
+    font-size: 10px;
+}
+
+
+/*hamburger*/
+/* small view navigation */
+#menu {
+	font-size: 1.5rem;
+	border: 0;
+	background: none;
+	color: white;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+#menu::before {
+	content: "☰";
+}
+
+#menu.open::before {
+	content: "X";
+}
+
+/* when the button is clicked - the open class is toggled (added/removed) */
+.open a {
+	display: block;
+}
