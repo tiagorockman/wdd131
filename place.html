@@ -10,6 +10,7 @@
         Place">
     <meta name="author" content="Tiago Neves Sousa">
     <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place_large.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;1,100;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -24,14 +25,12 @@
         </div>
     </header>
     <main>
-        <section class="card-images">
+        <section class="hero">
             
             <picture>
-                <source srcset="images/porquinho-da-india-peruano-branco-large.webp" media="min-width: 1000px">
-                <source srcset="images/capivara-medium.webp" media="min-width: 550px">
-                <div class="crop">
-                    <img src="images/capivara-small.webp" alt="South America">
-                </div>
+                <source media="(min-width: 1000px)" srcset="images/place-page/capivara-large.webp">
+  
+              <img src="images/place-page/capivara-small.webp" alt="Capibara">
               </picture>
         </section>
         <section class="data">
@@ -47,7 +46,7 @@
                 <div class="data-item"><span>Calling Code:</span> +55</div>
                 <div class="data-item"><span>Internet TLD:</span> .br</div>
               </div>
-              <div class="card-data">
+              <div class="card-data wheather-card">
                 <h2>Weather</h2>
                 <div class="weather">
                     <img src="images/weather.png" alt="Weather">

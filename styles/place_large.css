@@ -1,0 +1,69 @@
+
+@media screen and (min-width: 1000px)
+{
+    /*Global Variables*/   
+
+    header, main, body {
+        max-width: 1200px;
+    }
+
+    .hero img {
+       width: 100%;
+       height: auto;
+    }
+    .card-data{
+        position: absolute;
+        width: 20%;
+        padding: 10px;
+        left: 20%;
+        top: 10%;
+    }
+
+    .data h2 {
+        background-color: rgb(202, 212, 157);
+        text-align: left;
+        font-style: normal;
+        margin-left: -25px;
+    }
+
+  
+    picture img{
+        border-top: 15px solid var(--second-color);
+    }
+
+    picture img{
+        border-bottom: 12px solid var(--primary-color);
+        margin-bottom: -1%;
+    }
+    
+    .weather{
+        display: none;
+    }
+    .wheather-card {
+        margin: 20px;
+        padding: 10px;
+        left: 60%;
+        top: 75%;
+    }
+
+    .wheather-card h2 {
+        background-color: rgb(202, 212, 157);
+        text-align: left;
+        font-style: normal;
+        margin-left: -25px;
+    }
+    
+    .wheather-card h2::after{
+        content: "⛅";
+    }
+
+
+
+
+
+
+
+
+
+
+}

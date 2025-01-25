@@ -4,36 +4,38 @@
     box-sizing: border-box;
 }
 
+:root {
+    --max-width: 1000px;
+    --primary-color: green;
+    --second-color: yellow;
+    --background-color: #fff;
+}
+
 header,
 main,body {
     margin: 0 auto;
-    max-width: 650px;
+    max-width: var(--max-width);
 }
 
 header{
-    background-color: green;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--background-color);
     text-align: center;
     padding: 10px;
 }
 
 picture{
-    border-top: 15px solid yellow;
+    border-top: 15px solid var(--second-color);
 }
 
 picture img{
-    border-bottom: 8px solid green;
+    border-bottom: 8px solid var(--primary-color);
 }
 
-.crop img {
-    max-width: 650px;
-    width: 100%;
+.hero img {
+       width: 100%;
     height: 50%;
     overflow: hidden;
-}
-
-.card-images{
-    display: flex;
 }
 
 .data{
@@ -41,8 +43,9 @@ picture img{
     flex-direction: column;
     align-items: center;
 }
+
 .card-data {
-    background: #fff;
+    background: var(--background-color);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -76,7 +79,7 @@ picture img{
   .weather img{
     width: 100px;
   }
-  .lastModified{
+ #lastModified{
     text-align: center;
   }
 
@@ -86,8 +89,8 @@ picture img{
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
-    color: white;
-    background-color: green;
+    color: var(--background-color);
+    background-color:var(--primary-color);
 }
 
 
