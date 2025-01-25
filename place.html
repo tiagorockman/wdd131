@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals
+        Tiago Neves Sousa
+        Place">
+    <meta name="author" content="Tiago Neves Sousa">
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;1,100;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <script defer src="scripts/getdates.js"></script>
+    <title>WDD 131 - Dynamic Web Fundamentals - Tiago Neves</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Brazil</h1>
+        </div>
+    </header>
+    <main>
+        <section class="card-images">
+            
+            <picture>
+                <source srcset="images/porquinho-da-india-peruano-branco-large.webp" media="min-width: 1000px">
+                <source srcset="images/capivara-medium.webp" media="min-width: 550px">
+                <div class="crop">
+                    <img src="images/capivara-small.webp" alt="South America">
+                </div>
+              </picture>
+        </section>
+        <section class="data">
+            <div class="card-data">
+                <h2>Data</h2>
+               
+                <div class="data-item"><span>Area:</span> 8,515,767 km²</div>
+                <div class="data-item"><span>Population:</span> Approximately 216 million</div>
+                <div class="data-item"><span>Capital:</span> Brasília</div>
+                <div class="data-item"><span>Languages:</span> Portuguese</div>
+                <div class="data-item"><span>Currency:</span> Brazilian Real (BRL)</div>
+                <div class="data-item"><span>Time Zone:</span> UTC−2 to UTC−5</div>
+                <div class="data-item"><span>Calling Code:</span> +55</div>
+                <div class="data-item"><span>Internet TLD:</span> .br</div>
+              </div>
+              <div class="card-data">
+                <h2>Weather</h2>
+                <div class="weather">
+                    <img src="images/weather.png" alt="Weather">
+                </div>
+                <div class="data-item"><span>Temperature:</span> 25°C</div>
+                <div class="data-item"><span>Conditions:</span> Partly Cloudy</div>
+                <div class="data-item"><span>Wind:</span> 15 km/h</div>
+                <div class="data-item"><span>Wind Chill:</span> 23°C</div>
+              </div>
+        </section>
+    </main>
+    <footer>
+        <p>©<span id="currentyear"></span> 🏀 Tiago Neves 🏀</p> 
+        <p>Brazil</p>
+        <div id="lastModified">Last Modification: </div>
+    </footer>
+</body>
+</html>
