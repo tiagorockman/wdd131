@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;1,100;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     
-    <script defer src="scripts/getdates.js"></script>
+    <script defer src="scripts/place.js"></script>
     <title>WDD 131 - Dynamic Web Fundamentals - Tiago Neves</title>
 </head>
 <body>
@@ -49,19 +49,19 @@
               <div class="card-data wheather-card">
                 <h2>Weather</h2>
                 <div class="weather">
-                    <img src="images/weather.png" alt="Weather">
+                    <img src="images/place-page/weather.svg" alt="Weather">
                 </div>
                 <div class="data-item"><span>Temperature:</span> 25°C</div>
                 <div class="data-item"><span>Conditions:</span> Partly Cloudy</div>
                 <div class="data-item"><span>Wind:</span> 15 km/h</div>
-                <div class="data-item"><span>Wind Chill:</span> 23°C</div>
+                <div class="data-item"><span>Wind Chill:</span><p id="windchill"></p></div>
               </div>
         </section>
     </main>
     <footer>
         <p>©<span id="currentyear"></span> 🏀 Tiago Neves 🏀</p> 
         <p>Brazil</p>
-        <div id="lastModified">Last Modification: </div>
+        <div id="lastmodified">Last Modification: </div>
     </footer>
 </body>
 </html>
