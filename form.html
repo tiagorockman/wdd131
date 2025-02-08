@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals
+        Tiago Neves Sousa
+        Portifolio">
+    <meta name="author" content="Tiago Neves Sousa">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;1,100;1,700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <script defer src="scripts/getdates.js"></script>
+    <script defer src="scripts/form.js"></script>
+    <title>WDD 131 - Dynamic Web Fundamentals | Form - Tiago Neves</title>
+</head>
+<body>
+    <header>
+        <h1>Product Review</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://www.linkedin.com/in/tiago--neves/" target="_blank">Linkedin</a></li>
+                <li><a href="https://byupw.instructure.com/"  target="_blank">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7"  target="_blank">Scripture</a></li>
+                <li><a href="project/siteplan/siteplan.html">Final Project</a></li>
+                <li><a href="place.html">Place</a></li>
+                <li><a href="temples.html">Temples</a></li>
+                <li><a href="filtered-temples.html">Filtered Temples</a></li>
+                <li><a href="form.html">Form</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <main>
+        <div id="container-form">
+            <form method="get" action="review.html" class="form1">
+                <fieldset>
+                    <legend>Product Review</legend>
+                    <label for="product-name">Product name*</label>
+                    <select name="product-name" id="product-name" tabindex="1" required>
+                        <option disabled selected value="">Select a Product</option>
+                        <!--We are going to add more through Javascript-->
+                    </select>
+                    <label>Overall Raiting*</label>
+                    <div class="stars">
+                        <input tabindex="2" type="radio" id="fivestars" name="stars" value="1" required>
+                        <label tabindex="2"  for="fivestars"></label>
+                        <input tabindex="2" type="radio" id="fourstars" name="stars" value="1" required>
+                        <label tabindex="2" for="fourstars"></label>
+                        <input tabindex="2" type="radio" id="threestars" name="stars" value="1" required>
+                        <label tabindex="2" for="threestars"></label>
+                        <input tabindex="2" type="radio" id="twostars" name="stars" value="1" required>
+                        <label tabindex="2" tabindex="2" for="twostars"></label>
+                        <input tabindex="2" type="radio" id="onestar" name="stars" value="1" required>
+                        <label tabindex="2" for="onestar"></label>
+                    </div>
+                    <label for="date-of-installation">Date of Installation*</label>
+                    <input tabindex="3" type="date" name="date-of-installation" id="date-of-installation" required>
+                    <label>Which features did you find useful in the product?</label>
+                    <span>(Check all that apply)</span>
+                    <label><input tabindex="4" type="checkbox" name="durability" value="yes"> Durability</label>
+                    <label><input tabindex="4" type="checkbox" name="easy-of-use" value="yes"> Easy of Use</label>
+                    <label><input tabindex="4" type="checkbox" name="performance" value="yes"> Performance</label>
+                    <label><input tabindex="4" type="checkbox" name="design" value="yes"> Design</label>
+                    <label for="written-review">Written Review</label>
+                    <textarea tabindex="5" id="written-review" name="written-review"></textarea>
+
+                    <label for="user-name">Your Name</label>
+                    <input tabindex="5" type="text" id="user-name" name="user-name">
+                </fieldset>
+                <div class="submit-button">
+                    <input tabindex="6" type="submit" value="Post Review">
+                </div>
+            </form>
+
+        </div>
+    </main>
+    <footer>
+        <p>©<span id="currentyear"></span> 🏀 Tiago Neves 🏀 Brazil</p>
+        <div id="lastModified">Last Modification: </div>
+    </footer>
+</body>
+</html>
