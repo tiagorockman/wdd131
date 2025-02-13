@@ -28,16 +28,21 @@ body {
     font-family: var(--body-text);
 }
 
-main{
+main {
+    margin: 0 auto;
+    background: linear-gradient(to bottom, rgba(180, 167, 204, 0.5) 40%, var(--body) 100%);
+}
+
+.content {
     margin: 0 auto;
     max-width: var(--max-width);
 }
 
-header{
+header {
     top: 0;
 }
 
-.nav-links{
+.nav-links {
     position: absolute;
     background-color: rgba(78, 77, 78, 0.700);
     height: 3rem;
@@ -48,7 +53,7 @@ header{
     padding: 1rem 10px;
 }
 
-.nav-links li{
+.nav-links li {
     display: inline;
 }
 
@@ -77,80 +82,249 @@ header{
 }
 
 .hamburger::before {
-	content: "☰";
+    content: "☰";
 }
 
 .hamburger.open::before {
-	content: "X";
+    content: "X";
 }
 
 /* when the button is clicked - the open class is toggled (added/removed) */
 .open a {
-	display: block !important;
+    display: block !important;
 }
 
 /* Banner (For Background Visibility) */
 .banner {
     z-index: 0;
-    
+
     height: 400px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 70%),
-                url('../images/banner2.jpg');
+        url('../images/banner2.jpg');
     background-size: cover;
     background-position: 50% 20%;
 }
 
-
-h1{
+h1 {
     font-family: var(--main-headers-font);
 }
-h1, h2 {
+
+h1,
+h2 {
     color: var(--primary);
 }
 
-a{
+a {
     color: var(--gray-light);
 }
 
-.container {
-    background: var(--gray);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+section h2 {
+    font-size: 2rem;
 }
-.wireframe {
-    border: 1px solid var(--tertiary);
+
+.recent-episodes,
+.recent-news,
+.recent-animes {
+    padding-top: 10px;
+}
+
+.news-container,
+.episodes-container,
+.animes-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.news-card {
+    background: rgb(17 9 32 / 50%);
+    /* border-radius: 8px; */
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    min-height: 120px;
     padding: 10px;
-    text-align: center;
-    margin-top: 20px;
 }
 
-.wireframe p{
-    font-size: 3rem;
+
+.separator {
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
 }
 
-.wireframe img{
-    max-width: 40%;
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-card img {
+    width: 100%;
     height: auto;
 }
 
-.oswald{
-    font-family: var(--main-headers-font);
+/* Episode Card */
+.episode-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgb(17 9 32 / 50%);
+    height: 200px;
 }
 
-.roboto{
-    font-family: var(--body-text);
+.episode-card video {
+    width: 270px;
+    height: 70%;
+    border-radius: 2px;
+    background: white;
+}
+
+.play-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 60%;
+    cursor: pointer;
+}
+
+/* Anime Card */
+.anime-card {
+    text-align: center;
+    cursor: pointer;
+}
+
+.anime-card img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 225px;
+}
+
+.anime-card p {
+    margin-top: 5px;
+    color: white;
+    font-size: 16px;
 }
 
 
-@media screen and (min-width: 768px){
-    
-    .nav-links a:hover{
+.filter-container {
+    display: none;
+}
 
-        background-color: rgba(117, 117, 117, 0.7);
+
+footer {
+    background: #110920;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 250px;
+}
+
+.footer-left img {
+    padding: 10px;
+    height: 12vh;
+}
+
+.footer-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-center p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.disclaimer {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.footer-right a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer-right img {
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer-right img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*Only appear on big screens*/
+@media screen and (min-width: 1080px) {
+
+    .filter-container {
+        display: block;
+        position: absolute;
+        right: 1%;
+        top: 50%;
     }
 
-    
+    .filter-container h3 {
+        font-size: 2rem;
+        color: var(--text);
+        background-color: var(--gray-light);
+        border-radius: 25px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+
+    .alphabet-nav {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5px;
+
+    }
+
+    .alphabet-nav button {
+        background-color: var(--gray-light);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+
+    .alphabet-nav button:hover {
+        background-color: var(--secondary);
+    }
+
+}
+
+
+
+/*hover effect only for larger screens*/
+@media screen and (min-width: 768px) {
+
+    .nav-links a:hover {
+        background-color: rgba(117, 117, 117, 0.7);
+    }
 }
 
 /* Responsive Design*/
@@ -163,7 +337,7 @@ a{
         width: 100%;
     }
 
-    .auth-links{
+    .auth-links {
         display: none;
     }
 
@@ -184,15 +358,14 @@ a{
         display: flex;
     }
 
-    .navigation{
+    .navigation {
         background-color: rgba(78, 77, 78, 0.700);
     }
 
 
-    .nav-links li{
+    .nav-links li {
         font-size: 3rem;
     }
 
-    
-} 
 
+}
