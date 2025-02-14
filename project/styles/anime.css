@@ -1,3 +1,7 @@
+.content {
+    margin-top: 6%;
+}
+
 .anime-container {
     position: absolute;
     display: grid;
@@ -58,4 +62,22 @@
     line-height: 1.5;
     opacity: 0.9;
     color: var(--text);
+}
+
+.watch-links a img {
+    width: 20vh;
+    height: auto;
+    padding: 1.5rem 10px;
+    margin-left: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.watch-links img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.watch-container {
+    display: flex;
+    justify-content: center;
 }

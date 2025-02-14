@@ -9,6 +9,8 @@ await onInit();
 
 async function onInit(){
     loadAnimeInfo();
+    loadWheretoWatch();
+    loadNews();
 }
 
 
@@ -30,4 +32,25 @@ function loadAnimeInfo(){
     episodes.innerHTML = `<span class="number">${animeSelected.episodes}</span> Episodes`;
     description.innerHTML = animeSelected.synopsis;
 
+
+}
+
+function loadWheretoWatch(){
+    document.getElementById("crunchyroll-link").href = `https://www.crunchyroll.com/search?q=${encodeURIComponent(animeSelected.title)}`;
+    document.getElementById("netflix-link").href = `https://www.netflix.com/search?q=${encodeURIComponent(animeSelected.title)}`;
+    document.getElementById("youtube-link").href = `https://www.youtube.com/results?search_query=${encodeURIComponent(animeSelected.title)}+trailer`;
+}
+
+function loadNews(){
+    document.getElementById("crunchyroll-img").src = animeSelected.images.webp.image_url;
+    document.getElementById("animesNet-img").src = animeSelected.images.webp.image_url;
+    document.getElementById("animeNew-img").src = animeSelected.images.webp.image_url;
+    document.getElementById("pbs-img").src = animeSelected.images.webp.image_url;
+    document.getElementById("crunchyroll").href = `https://www.crunchyroll.com/pt-br/news/search?s=${encodeURIComponent(animeSelected.title)}`;
+    document.getElementById("animesNet").href = ` https://www.animenewsnetwork.com/search?q=${encodeURIComponent(animeSelected.title)}#gsc.tab=0&gsc.q=${encodeURIComponent(animeSelected.title)}&gsc.ref=more%3Anew_s`;
+    document.getElementById("animeNew").href = `https://animenew.com.br/?s=${encodeURIComponent(animeSelected.title)}`;
+    document.getElementById("pbs").href = `https://www.pbs.org/newshour/search-results?q=${encodeURIComponent(animeSelected.title)}`;
+   
+    
+    
 }
