@@ -70,6 +70,7 @@ function loadNews() {
         .then(response => response.json())
         .then(news => {
             if (Array.isArray(news.data) && news.data.length > 0) {
+                saveNews(news.data);
                 loadNewsSection(news.data);
             }
         })

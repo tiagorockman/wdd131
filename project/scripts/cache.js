@@ -16,7 +16,7 @@ export function getCachedAnimeData(term) {
     return {};
 }
 
-export function saveNews(term, data) {
+export function saveNews(data) {
     const newsObject = {
         data,
         timestamp: Date.now() // Store current time
