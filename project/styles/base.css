@@ -5,7 +5,7 @@
 }
 
 :root {
-    --body: #110920; 
+    --body: #110920;
     --text: #fff;
     --link: #fff;
     --link-hover: #03c1ef;
@@ -106,7 +106,7 @@ header {
     max-height: 50vh;
 }
 
-.banner img{
+.banner img {
     position: absolute;
     left: 0;
     top: 0;
@@ -120,12 +120,12 @@ header {
     z-index: -1;
 }
 
-img{
+img {
     vertical-align: middle;
     max-width: 100%;
 }
 
-.banner::before{
+.banner::before {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -136,7 +136,7 @@ img{
     min-width: 0;
 }
 
-.banner::after{
+.banner::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -180,7 +180,7 @@ section h2 {
     flex-wrap: wrap;
 }
 
-.animes-container{
+.animes-container {
     height: 100%;
     overflow: hidden;
 }
@@ -199,7 +199,7 @@ section h2 {
 
 }
 
-.news-card::before{
+.news-card::before {
     position: absolute;
     right: .5rem;
     bottom: .6rem;
@@ -231,7 +231,7 @@ section h2 {
     transition: all .4s ease-in-out;
 }
 
-.news-card span{
+.news-card span {
     position: absolute;
     bottom: 0px;
     font-size: .875rem;
@@ -240,19 +240,57 @@ section h2 {
 }
 
 /* Episode Card */
+
+.video-container {
+    position: relative;
+    width: 270px;
+    height: 70%;
+}
+
+.video-thumbnail, .video-iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: white;
+}
+
+.video-iframe {
+    display: none; /* Initially hidden */
+}
+
 .episode-card {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
     background: rgb(17 9 32 / 50%);
+    width: 270px;
     height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; 
 }
 
-.episode-card video {
-    width: 270px;
-    height: 70%;
-    border-radius: 2px;
-    background: white;
+.episode-card span{
+    position: relative;
+    z-index: 2; /* Ensure it appears above the video */
+    color: var(--text);
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Add background to make text readable */
+    width: 100%;
+}
+
+.episode-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Fill entire width */
+    height: 100%; /* Fill entire height */
+    object-fit: cover; /* Ensure it covers the area properly */
+    border-radius: 10px;
+    z-index: 0; 
 }
 
 .play-btn {
@@ -269,9 +307,10 @@ section h2 {
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 3; 
 }
 
-.play-btn:hover{
+.play-btn:hover {
     background: rgba(126, 125, 125, 0.7);
 }
 
@@ -283,7 +322,7 @@ section h2 {
     max-width: 20vh;
 }
 
-.anime-card:hover{
+.anime-card:hover {
     transform: scale(1.1);
 }
 

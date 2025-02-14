@@ -1,6 +1,8 @@
+import { saveAnimeData, getCachedAnimeData, setAnimeSelected, getAnimeSelected, saveNews } from "./cache.js";
+
 /*APIS*/
 const jikanApi = "https://api.jikan.moe/v4";
-const animeAPI = "https://2anime.xyz";
+const animeAPI = "https://animeapi.skin";
 
 const apisPaths = {
     news: `${jikanApi}/anime/1/news`,
@@ -10,19 +12,19 @@ const apisPaths = {
 }
 
 
-onInit();
+await onInit();
 
 
 
 
 
 
-function onInit() {
+async function onInit() {
     setCurrentYear();
     setHamburger();
     loadNews();
-    loadRecentEpisodes();
-    loadRecentAnimes();
+   await loadRecentEpisodes();
+   await loadRecentAnimes();
 
 }
 
@@ -47,6 +49,23 @@ function setHamburger() {
 }
 
 function loadNews() {
+    const storedData = localStorage.getItem("newsData");
+
+    if(storedData){
+        const { data, timestamp } = JSON.parse(storedData);
+        const now = Date.now();
+        const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+        
+        if (now - timestamp < oneWeek) {
+            console.log("✅ Using cached news data"); //if storage data is more than 1 week remove it and search on api again
+            loadNewsSection(data);
+            return;
+        } else {
+            console.log("⏳ Cache expired. Fetching new news...");
+            localStorage.removeItem("newsData"); // Clear old data
+        }
+    }
+
     fetch(apisPaths.news)
         .then(response => response.json())
         .then(news => {
@@ -96,7 +115,7 @@ function loadNewsSection(news) {
 
 }
 
-function loadRecentAnimes() {
+async function loadRecentAnimes() {
     const animeNames = [
         "My Hero Academia",
         "Solo Leveling",
@@ -105,58 +124,96 @@ function loadRecentAnimes() {
         "CARDFIGHT"
     ];
 
-    animeNames.forEach(name => getAnimeDatabyName(name));
+    const animeDataArray = await Promise.all(
+        animeNames.map(name=>getAnimeDatabyName(name))
+    );
+
+    loadRecentAnimesContainer(animeDataArray);
 }
 
-function loadRecentEpisodes(){
-const episodesAnimesNames = [
-    "DragonBall"
-]
-
-episodesAnimesNames.forEach(anime=>{
-    const endpoint = apisPaths.byName.replace('{animeName}', anime).replace('{number}', 1);
-    fetch(endpoint)
-    .then(response => response.json())
-    .then(data => {
-        if (Array.isArray(data.data) && data.data.length > 0)
-            episodeSectionConstruct(data.data[0]);
-    })
-    .catch(err => console.error(err));
-});
-}
-
-
-function episodeSectionConstruct(episode){
-        const epContainer = document.querySelector(".episodes-container");
-
-            const epCard = document.createElement("div");
-            epCard.classList.add("episode-card");    
+async function loadRecentEpisodes() {
+    const episodesAnimesNames = [
+        "DragonBall",
+        "Captain Tsubasa",
+        "Shurato",
+        "Saint Seya",
+        "Berserk"
+    ]
     
-            const video = document.createElement("video");
-            video.src = episode.trailer.url;
-            video.poster = episode.trailer.images.medium_image_url;
-            epCard.appendChild(video);
+    const animeDataArray = await Promise.all(
+        episodesAnimesNames.map(name=>getAnimeDatabyName(name))
+    );
 
-            const play = document.createElement("div");
-            play.classList.add("play-btn");
-            play.innerHTML = "▶";
-            epCard.appendChild(play);
+   await loadRecentEpisodesContainer(animeDataArray) 
 
-            setAnimeListener(episode, epCard);    
+ }
 
-            epContainer.appendChild(epCard);
+
+async function loadRecentEpisodesContainer(animedata) {
+    const epContainer = document.querySelector(".episodes-container");
+
+    animedata.forEach(async episode =>{
+        const epCard = document.createElement("div");
+        epCard.classList.add("episode-card");
     
+        const div = document.createElement("div");
+        div.classList.add("video-container");
+            const img = document.createElement("img");
+            img.classList.add("video-thumbnail");
+            img.src = episode.trailer.images.medium_image_url || episode.images.webp.image_url;
+            img.alt = episode.title;
+            div.appendChild(img);
+
+            let url = episode.trailer.embed_url;
+            const iframe = document.createElement("iframe");
+            iframe.classList.add("video-iframe");
+            if(url == null){
+                url = await getAnimeTrailer(title, null);
+            }
+            iframe.dataSrc = url;
+            iframe.src =  url;
+            iframe.frameborder = "0";
+            iframe.allowFullscreen = true;
+            
+        div.appendChild(iframe)
+        
+        epCard.appendChild(div);
+
+        const span = document.createElement("span");
+        span.innerText  = episode.title;
+        epCard.appendChild(span);
+    
+        const play = document.createElement("div");
+        play.classList.add("play-btn");
+        play.innerHTML = "▶";
+
+        play.addEventListener('click', ()=>{
+            iframe.src = iframe.dataSrc;
+            iframe.style.display = 'block';
+            img.style.display = 'none';
+            play.style.display = 'none'; 
+        })
+
+        epCard.appendChild(play);
+    
+       // setAnimeListener(episode, epCard);
+    
+        epContainer.appendChild(epCard);
+    }); 
+
 }
 
 function loadRecentAnimesContainer(animeData) {
-    const item = animeData;
+  
     const animesContainer = document.querySelector(".animes-container");
+
+    animeData.forEach(item=>{
         const animeCard = document.createElement("div");
         animeCard.classList.add("anime-card");
 
         const img = document.createElement("img");
         img.loading = "lazy";
-        img.src = item.images.webp.image_url;
+        img.src = item.images.webp.image_url || item.images.jpg.image_url;
         img.alt = item.title;
 
         //when does't has image
@@ -175,35 +232,66 @@ function loadRecentAnimesContainer(animeData) {
         setAnimeListener(item, animeCard);
 
         animesContainer.append(animeCard);
+    });
 
 }
 
-function setAnimeListener(item, htmlobject){
+function setAnimeListener(item, htmlobject) {
     htmlobject.addEventListener('click', () => {
-        setLocaltionStoreAnimeSearch(item);
+        setAnimeSelected(item);
         window.location.href = "anime.html";
     });
 }
 
+async function getAnimeDatabyName(name) {
 
-function setLocaltionStoreAnimeSearch(animeData){
-    localStorage.setItem("anime", JSON.stringify(animeData));
-}
+    const cacheData = getCachedAnimeData(name);
+    if (Object.keys(cacheData).length > 0) {
+        console.log(`Cache hit for: ${name}`);
+        return cacheData;
+    }
 
-function setLocaltionStoreAnimeSearch(animeData){
-    const storedAnime = JSON.parse(localStorage.getItem("anime") || {});
-}
-
-function getAnimeDatabyName(name) {
-
+    console.log(`Fetching from API: ${name}`);
     const endpoint = apisPaths.byName.replace('{animeName}', name).replace('{number}', 1);
 
-   fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-            if (Array.isArray(data.data) && data.data.length > 0)
-                loadRecentAnimesContainer(data.data[0]);
-        })
-        .catch(err => console.error(err));
+    try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
 
+        if (Array.isArray(data.data) && data.data.length > 0) {
+            const animeInfo = data.data[0];
+
+            saveAnimeData(name, animeInfo);
+
+            return animeInfo;
+        }
+    } catch (err) {
+        console.error(`Error fetching ${name}`, err);
+    }
+    return {};
+
+}
+
+
+async function getAnimeTrailer(animeName, existingUrl) {
+    if (existingUrl) {
+        return existingUrl; 
+    }
+
+    const searchUrl = `${animeAPI}/search?q=${encodeURIComponent(animeName)}`;
+
+    try {
+        const response = await fetch(searchUrl);
+        const data = await response.json();
+
+        if (data && data.length > 0 && data[0].embed_url) {
+            return data[0].embed_url; // Return the first result's embed URL
+        } else {
+            console.warn(`No embed URL found for ${animeName}`);
+            return null;
+        }
+    } catch (error) {
+        console.error("Error fetching trailer:", error);
+        return null;
+    }
 }
