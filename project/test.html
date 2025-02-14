@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Video Player</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: #121212; color: white; text-align: center; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        .playlist { display: flex; flex-direction: column; gap: 10px; }
+        .video-item { display: flex; align-items: center; cursor: pointer; padding: 10px; border-radius: 8px; background: #222; }
+        .video-item img { width: 80px; height: 50px; margin-right: 10px; border-radius: 4px; }
+        .video-item:hover { background: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Anime Video Player</h2>
+        <video id="player" controls>
+            <source id="videoSource" src="" type="video/mp4">
+        </video>
+        <h3>Playlist</h3>
+        <div class="playlist" id="playlist"></div>
+    </div>
+
+    <iframe src="https://2anime.xyz/embed/one-piece-episode-1" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    
+    <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+    <script>
+        const player = new Plyr("#player");
+        const playlistContainer = document.getElementById("playlist");
+        const videoSource = document.getElementById("videoSource");
+
+        async function fetchVideos() {
+            const response = await fetch("videos.json"); // Change this to your API if needed
+            const videos = await response.json();
+            
+            videos.forEach((video, index) => {
+                const videoItem = document.createElement("div");
+                videoItem.classList.add("video-item");
+                videoItem.innerHTML = `<img src="${video.thumbnail}" alt="Thumbnail"><span>${video.title}</span>`;
+                
+                videoItem.addEventListener("click", () => {
+                    videoSource.src = video.videoUrl;
+                    player.source = { type: "video", sources: [{ src: video.videoUrl, type: "video/mp4" }] };
+                    player.play();
+                });
+                
+                playlistContainer.appendChild(videoItem);
+                if (index === 0) { // Load first video by default
+                    videoSource.src = video.videoUrl;
+                    player.source = { type: "video", sources: [{ src: video.videoUrl, type: "video/mp4" }] };
+                }
+            });
+        }
+
+        fetchVideos();
+    </script>
+</body>
+</html>
