@@ -24,7 +24,7 @@
 
 .number {
     color: var(--primary) !important;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .anime-poster {
@@ -69,9 +69,16 @@
     line-height: 1.5;
     opacity: 0.9;
     color: var(--text);
-    overflow: hidden;     /* Hide overflow */
+    overflow: hidden;
+    /* Hide overflow */
 
 }
+
+.watch-links {
+    display: flex;
+    align-items: center;
+}
+
 
 .watch-links a img {
     width: 20vh;
@@ -111,6 +118,7 @@
     position: relative;
     width: 25vh;
     height: 80%;
+    cursor: pointer;
 }
 
 .episode-card:hover {
@@ -159,19 +167,19 @@
 
 @media screen and (max-width: 854px) {
 
-.anime-container{
-    grid-template-columns: 41% 97%;
-}
+    .anime-container {
+        grid-template-columns: 41% 97%;
+    }
 
-main{
-    padding-left: 10%;
-}
+    main {
+        padding-left: 10%;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .anime-container{
+    .anime-container {
         grid-template-columns: 50% 97%;
         padding: 1rem 10px;
     }
-    
+
 }

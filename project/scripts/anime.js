@@ -1,13 +1,15 @@
 import { getAnimeSelected, setEpisodeSelected, removeEpisodeSelected} from "./cache.js";
-import { setCurrentYear, setHamburger} from './base.js'
+import { setCurrentYear, setHamburger, loadBanners} from './loadData.js'
+
+window.onload = loadBanners;
 
 const animeSelected = getAnimeSelected();
 
 
-await onInit();
+onInit();
 
 
-async function onInit(){
+function onInit(){
     setCurrentYear();
     setHamburger();
     loadAnimeInfo();
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const episodesPerPage = 15;
 
     function loadEpisodes() {
+        debugger;
         for (let i = 0; i < episodesPerPage; i++) {
             if (currentEpisode > totalEpisodes) {
                 loadMoreBtn.style.display = "none";
@@ -80,11 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const episodeCard = document.createElement("a");
-            episodeCard.href = `episodes.html`;
             episodeCard.innerHTML = `
                 <div class="episode-card">
                     <div class="video-container">
                         <img class="video-thumbnail"
+                            loading="lazy"
                             src="https://img.youtube.com/vi/fg_fP7cRJXg/mqdefault.jpg" 
                             alt="Episode ${currentEpisode}">
                     </div>
@@ -92,10 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="play-btn">▶</div>
                 </div>`;
             
-            episodeCard.addEventListener("click", ()=>{
-                setEpisodeSelected(currentEpisode);
-            });
-            
+            episodeCard.onclick = () => { setEpisodeSelectedAndRedirect(`${i+1}`)};            
 
             episodesContainer.appendChild(episodeCard);
             currentEpisode++;
@@ -108,3 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Load more episodes when button is clicked
     loadMoreBtn.addEventListener("click", loadEpisodes);
 });
+
+function setEpisodeSelectedAndRedirect(episode){
+    debugger;
+    setEpisodeSelected(episode);
+    window.location.href = "episodes.html";
+}

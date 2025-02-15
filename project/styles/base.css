@@ -8,7 +8,7 @@
     --body: #110920;
     --text: #fff;
     --link: #fff;
-    --link-hover: #03c1ef;
+    --link-hover: #03a1d9 ;
     --primary: #03c1ef;
     --secondary: #8c3596;
     --tertiary: #666;
@@ -39,9 +39,6 @@ main {
     max-width: var(--max-width);
 }
 
-header {
-    top: 0;
-}
 
 .nav-links {
     position: absolute;
@@ -120,11 +117,6 @@ header {
     z-index: -1;
 }
 
-img {
-    vertical-align: middle;
-    max-width: 100%;
-}
-
 .banner::before {
     position: absolute;
     bottom: 0;
@@ -187,14 +179,13 @@ section h2 {
 }
 
 .news-card {
-    background-color: var(--gray);
+    background: linear-gradient(to bottom, rgba(180, 167, 204, 0.5) 0%, var(--body) 100%);
     border-radius: .2rem;
     padding: .5rem;
     -webkit-transition: .2s;
     transition: .2s;
     line-height: 1rem;
     backdrop-filter: blur(10px);
-    background: rgb(17 9 32 / 50%);
     height: 35vh;
     max-width: 22vh;
 

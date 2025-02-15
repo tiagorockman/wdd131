@@ -1,4 +1,7 @@
-import { saveAnimeData, getCachedAnimeData, setAnimeSelected, getAnimeSelected, saveNews } from "./cache.js";
+import { saveAnimeData, getCachedAnimeData, setAnimeSelected, getAnimeSelected, saveNews, removeEpisodeSelected } from "./cache.js";
+import { setCurrentYear, setHamburger, loadBanners } from "./loadData.js";
+
+window.onload = loadBanners;
 
 /*APIS*/
 const jikanApi = "https://api.jikan.moe/v4";
@@ -14,8 +17,6 @@ const apisPaths = {
 
 await onInit();
 
-
-
 async function onInit() {
     setCurrentYear();
     setHamburger();
@@ -25,25 +26,6 @@ async function onInit() {
 
 }
 
-
-export function setCurrentYear() {
-
-    const currentYear = document.getElementById('currentyear');
-    currentYear.textContent = new Date().getFullYear();
-
-}
-
-export function setHamburger() {
-    /*HAMBURGER*/
-    const hamButton = document.querySelector('#menu');
-    const navLinks = document.querySelector('.nav-links');  // FIXED SELECTOR
-
-    hamButton.addEventListener('click', () => {
-        navLinks.classList.toggle('open');  // Toggle .open on .nav-links
-        hamButton.classList.toggle('open');
-    });
-
-}
 
 function loadNews() {
     const storedData = localStorage.getItem("newsData");
@@ -114,6 +96,8 @@ function loadNewsSection(news) {
 }
 
 async function loadRecentAnimes() {
+
+    removeEpisodeSelected();
     const animeNames = [
         "My Hero Academia",
         "Solo Leveling",
@@ -157,6 +141,7 @@ async function loadRecentEpisodesContainer(animedata) {
         const div = document.createElement("div");
         div.classList.add("video-container");
             const img = document.createElement("img");
+            img.loading = "lazy";
             img.classList.add("video-thumbnail");
             img.src = episode.trailer.images.medium_image_url || episode.images.webp.image_url;
             img.alt = episode.title;

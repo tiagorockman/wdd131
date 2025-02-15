@@ -31,7 +31,9 @@
     align-items: center;
 }
 
-iframe {
+.video-card video{
+    max-width: 1152px;
+    height: auto;
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
