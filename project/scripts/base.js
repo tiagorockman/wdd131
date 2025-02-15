@@ -16,9 +16,6 @@ await onInit();
 
 
 
-
-
-
 async function onInit() {
     setCurrentYear();
     setHamburger();
@@ -29,14 +26,14 @@ async function onInit() {
 }
 
 
-function setCurrentYear() {
+export function setCurrentYear() {
 
     const currentYear = document.getElementById('currentyear');
     currentYear.textContent = new Date().getFullYear();
 
 }
 
-function setHamburger() {
+export function setHamburger() {
     /*HAMBURGER*/
     const hamButton = document.querySelector('#menu');
     const navLinks = document.querySelector('.nav-links');  // FIXED SELECTOR

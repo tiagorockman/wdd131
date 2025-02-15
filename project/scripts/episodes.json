@@ -16,5 +16,41 @@
                 "link_replace": "https://2anime.xyz/embed/one-piece-episode-number"
             }
         ]
+    },
+    "CARDFIGHT": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/cardfight-vanguard-divinez-season-2-dub-episode-1",
+                "link_replace": "https://2anime.xyz/embed/cardfight-vanguard-divinez-season-2-dub-episode-number"
+            }
+        ]
+    },
+    "Kinnikuman Perfect Origin Arc": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/kinnikuman-kanpeki-chоujin-shiso-hen-season-2-episode-1",
+                "link_replace": "https://2anime.xyz/embed/kinnikuman-kanpeki-chоujin-shiso-hen-season-2-episode-number"
+            }
+        ]
+    },
+    "Solo Leveling": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/ore-dake-level-up-na-ken-season-2-arise-from-the-shadow-episode-2",
+                "link_replace": "https://2anime.xyz/embed/ore-dake-level-up-na-ken-season-2-arise-from-the-shadow-episode-number"
+            }
+        ]
+    },
+    "My Hero Academia": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/boku-no-hero-academia-7th-season-dub-episode-1",
+                "link_replace": "https://2anime.xyz/embed/boku-no-hero-academia-7th-season-dub-episode-number"
+            }
+        ]
     }
 }

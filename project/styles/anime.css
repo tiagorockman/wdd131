@@ -3,13 +3,14 @@
 }
 
 .anime-container {
-    position: absolute;
     display: grid;
-    grid-template-columns: 15% 70%;
+    grid-template-columns: 20% 90%;
     align-items: center;
-    top: 9%;
-    left: 10%;
     margin: 0 auto;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 .anime-banner {
@@ -33,6 +34,11 @@
     object-fit: cover;
 }
 
+.anime-info-card {
+    display: flex;
+    justify-content: center;
+}
+
 .anime-info {
     background: rgba(30, 28, 28, 0.5);
     width: 100%;
@@ -40,6 +46,7 @@
     max-height: 40vh;
     margin-left: 20px;
     border-radius: 10px;
+    overflow-y: hidden;
 }
 
 .anime-title {
@@ -62,6 +69,8 @@
     line-height: 1.5;
     opacity: 0.9;
     color: var(--text);
+    overflow: hidden;     /* Hide overflow */
+
 }
 
 .watch-links a img {
@@ -83,9 +92,6 @@
     justify-content: center;
 }
 
-.episodes {
-    margin-top: 5%;
-}
 
 .episodes-container {
     display: flex;
@@ -107,7 +113,7 @@
     height: 80%;
 }
 
-.episode-card:hover{
+.episode-card:hover {
     transform: scale(1.1);
 }
 
@@ -149,4 +155,23 @@
 .star {
     color: var(--primary);
     font-size: 1.2rem;
+}
+
+@media screen and (max-width: 854px) {
+
+.anime-container{
+    grid-template-columns: 41% 97%;
+}
+
+main{
+    padding-left: 10%;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .anime-container{
+        grid-template-columns: 50% 97%;
+        padding: 1rem 10px;
+    }
+    
 }

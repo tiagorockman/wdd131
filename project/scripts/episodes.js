@@ -1,5 +1,5 @@
 import { getAnimeSelected, setEpisodeSelected, getEpisodeSelected, removeEpisodeSelected} from "./cache.js";
-
+import { setCurrentYear, setHamburger } from "./base.js";
 
 const animeSelected = getAnimeSelected();
 let episodeSelected = getEpisodeSelected();
@@ -11,6 +11,8 @@ await onInit();
 
 
 async function onInit(){
+    setCurrentYear();
+    setHamburger();
     loadAnimeInfo();
     loadEpisodes();
    await loadVideo();
