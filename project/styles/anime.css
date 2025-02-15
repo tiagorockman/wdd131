@@ -165,21 +165,48 @@
     font-size: 1.2rem;
 }
 
-@media screen and (max-width: 854px) {
+@media screen and (max-width: 556px) {
 
     .anime-container {
-        grid-template-columns: 41% 97%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
-    main {
-        padding-left: 10%;
+    .anime-banner {
+        display: none;
     }
 }
 
+
+
 @media screen and (max-width: 768px) {
+    .watch-links {
+        display: flex;
+        flex-direction: column;
+    }
+    
+
     .anime-container {
-        grid-template-columns: 50% 97%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .anime-banner {
+        width: 35vh !important;
+    }
+}
+
+
+@media screen and (max-width: 1600px) {
+    .anime-container {
+        grid-template-columns: 40% 97%;
         padding: 1rem 10px;
+    }
+
+    .anime-banner {
+        width: 20vh;
     }
 
 }

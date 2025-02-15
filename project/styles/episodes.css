@@ -60,26 +60,3 @@
     font-weight: 1rem;
     padding: 1rem 10%;
 }
-
-
-@media screen and (max-width: 854px) {
-
-    .anime-container {
-        grid-template-columns: 41% 97%;
-    }
-
-    main {
-        margin: 1rem auto;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .anime-container {
-        display: flex;
-        flex-direction: row;
-
-    }
-
-
-
-}

@@ -8,7 +8,7 @@
     --body: #110920;
     --text: #fff;
     --link: #fff;
-    --link-hover: #03a1d9 ;
+    --link-hover: #03a1d9;
     --primary: #03c1ef;
     --secondary: #8c3596;
     --tertiary: #666;
@@ -368,7 +368,7 @@ footer {
     max-width: 12vh;
 }
 
-.footer-right img{
+.footer-right img {
     width: px;
     height: auto;
     object-fit: fill;
@@ -459,7 +459,8 @@ footer {
         background-color: rgba(117, 117, 117, 0.7);
     }
 
-    
+ 
+
 }
 
 /* Responsive Design*/
@@ -508,7 +509,7 @@ footer {
         margin: 3rem;
     }
 
-    footer{
+    footer {
         font-size: .7rem;
     }
 
@@ -517,6 +518,10 @@ footer {
         flex-direction: row;
         padding: 1rem auto;
 
+    }
+    .news-container, .episodes-container, .animes-container {
+        display: flex;
+        justify-content: center;
     }
 
 }
