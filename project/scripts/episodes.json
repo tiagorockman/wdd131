@@ -1,0 +1,20 @@
+{
+    "Dragon Ball Daima": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/dragon-ball-daima-episode-1",
+                "link_replace": "https://2anime.xyz/embed/dragon-ball-daima-episode-number"
+            }
+        ]
+    },
+    "One Piece": {
+        "episodes": [
+            {
+                "episode": 1,
+                "link_pattern": "https://2anime.xyz/embed/one-piece-episode-1",
+                "link_replace": "https://2anime.xyz/embed/one-piece-episode-number"
+            }
+        ]
+    }
+}

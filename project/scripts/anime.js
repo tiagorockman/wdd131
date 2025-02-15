@@ -1,4 +1,4 @@
-import { getAnimeSelected } from "./cache.js";
+import { getAnimeSelected, setEpisodeSelected, removeEpisodeSelected} from "./cache.js";
 
 
 const animeSelected = getAnimeSelected();
@@ -11,6 +11,9 @@ async function onInit(){
     loadAnimeInfo();
     loadWheretoWatch();
     loadNews();
+
+    //clear episodeSelected
+    removeEpisodeSelected()
 }
 
 
@@ -22,7 +25,8 @@ function loadAnimeInfo(){
     const seasons = document.querySelector(".seasons");
     const episodes = document.querySelector(".episodes");
     const description = document.querySelector(".anime-description");
-
+    const score = document.querySelector(".imdb-score");
+    
 
     title.innerHTML = animeSelected.title + " " + animeSelected.title_japanese;
     animePoster.src = animeSelected.images.webp.large_image_url ||  animeSelected.images.jpg.large_image_url;
@@ -31,7 +35,7 @@ function loadAnimeInfo(){
     seasons.innerHTML = "Several";
     episodes.innerHTML = `<span class="number">${animeSelected.episodes}</span> Episodes`;
     description.innerHTML = animeSelected.synopsis;
-
+    score.innerHTML = animeSelected.score || 8.75;
 
 }
 
@@ -50,7 +54,55 @@ function loadNews(){
     document.getElementById("animesNet").href = ` https://www.animenewsnetwork.com/search?q=${encodeURIComponent(animeSelected.title)}#gsc.tab=0&gsc.q=${encodeURIComponent(animeSelected.title)}&gsc.ref=more%3Anew_s`;
     document.getElementById("animeNew").href = `https://animenew.com.br/?s=${encodeURIComponent(animeSelected.title)}`;
     document.getElementById("pbs").href = `https://www.pbs.org/newshour/search-results?q=${encodeURIComponent(animeSelected.title)}`;
-   
-    
-    
+
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const episodesContainer = document.getElementById("episodesContainer");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+
+    const totalEpisodes = animeSelected.episodes;
+    let currentEpisode = 1;
+    const episodesPerPage = 15;
+
+    function loadEpisodes() {
+        for (let i = 0; i < episodesPerPage; i++) {
+            if (currentEpisode > totalEpisodes) {
+                loadMoreBtn.style.display = "none";
+                break;
+            }
+
+            if(totalEpisodes > 10){
+                loadMoreBtn.style.display = "block";
+            }
+
+            const episodeCard = document.createElement("a");
+            episodeCard.href = `episodes.html`;
+            episodeCard.innerHTML = `
+                <div class="episode-card">
+                    <div class="video-container">
+                        <img class="video-thumbnail"
+                            src="https://img.youtube.com/vi/fg_fP7cRJXg/mqdefault.jpg" 
+                            alt="Episode ${currentEpisode}">
+                    </div>
+                    <span class="number">1x${currentEpisode}</span>
+                    <div class="play-btn">▶</div>
+                </div>`;
+            
+            episodeCard.addEventListener("click", ()=>{
+                setEpisodeSelected(currentEpisode);
+            });
+            
+
+            episodesContainer.appendChild(episodeCard);
+            currentEpisode++;
+        }
+    }
+
+    // Load initial episodes
+    loadEpisodes();
+
+    // Load more episodes when button is clicked
+    loadMoreBtn.addEventListener("click", loadEpisodes);
+});

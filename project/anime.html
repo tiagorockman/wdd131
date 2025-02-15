@@ -26,7 +26,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="">Movies</a></li>
                     <li><a href="anime.html">Animes</a></li>
-                    <li><a href="">Episodes</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="">News</a></li>
                     <li><a href="">Animes</a></li>
                 </ul>
@@ -64,6 +64,15 @@
                     </p>
                 </div>
             </div>
+            
+            <div class="season-rating">
+                <span class="season-text">Season</span>
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span class="imdb-score">8.7</span>
+                </div>
+            </div>
+
 
             <!-- WATCH -->
             <section class="watch-options">
@@ -95,8 +104,7 @@
                     <article class="news-card">
                         <a id="crunchyroll" target="_blank">
                             <figure>
-                                <img loading="lazy" id="crunchyroll-img"
-                                    alt="News on Crunchyroll...">
+                                <img loading="lazy" id="crunchyroll-img" alt="News on Crunchyroll...">
                             </figure>
                             <span>News on Crunchyroll...</span>
                         </a>
@@ -104,8 +112,7 @@
                     <article class="news-card">
                         <a id="animesNet" target="_blank">
                             <figure>
-                                <img loading="lazy" id="animesNet-img"
-                                    alt="News on AnimeNewsNetwork...">
+                                <img loading="lazy" id="animesNet-img" alt="News on AnimeNewsNetwork...">
                             </figure>
                             <span>News on AnimeNewsNetwork...</span>
                         </a>
@@ -113,8 +120,7 @@
                     <article class="news-card">
                         <a id="animeNew" target="_blank">
                             <figure>
-                                <img loading="lazy" id="animeNew-img"
-                                    alt="News on Animenew...">
+                                <img loading="lazy" id="animeNew-img" alt="News on Animenew...">
                             </figure>
                             <span>News on Animenew...</span>
                         </a>
@@ -122,8 +128,7 @@
                     <article class="news-card">
                         <a id="pbs" target="_blank">
                             <figure>
-                                <img loading="lazy" id="pbs-img"
-                                    alt="News on PBS...">
+                                <img loading="lazy" id="pbs-img" alt="News on PBS...">
                             </figure>
                             <span>News on PBS...</span>
                         </a>
@@ -131,12 +136,19 @@
                 </div>
             </section>
 
+
+            
             <!-- EPISODES -->
             <section class="episodes">
-                <h2>Recent Episodes</h2>
+                <h2>Episodes</h2>
                 <div class="separator"></div>
-                <div class="episodes-container">
+                <div class="episodes-container" id="episodesContainer">
                 </div>
+                <a href="episodes.html">
+                    <div class="load-card" id="loadMoreBtn">
+                        <span class="number">Load more</span>
+                    </div>
+                </a>
             </section>
 
     </main>

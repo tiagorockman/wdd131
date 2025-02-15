@@ -7,14 +7,16 @@
     <meta name="description" content="Anime Hub Portal">
     <meta name="author" content="Tiago Neves Sousa">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/episodes.css">
+    <link rel="stylesheet" href="styles/anime.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <script type="module" src="scripts/base.js"></script>
-    <title>Anime Hub Portal - Home</title>
+    <script type="module" src="scripts/episodes.js"></script>
+    <title>Anime Hub Portal - Episodes</title>
 </head>
 
 <body>
@@ -41,66 +43,61 @@
                 <img loading="lazy" src="images/banner2.jpg">
             </div>
         </nav>
+
     </header>
     <main>
         <section class="content">
-            <!-- RECENT NEWS -->
-            <section class="recent-news">
-                <h2>Recent News</h2>
-                <div class="separator"></div>
-                <div class="news-container">
+            <div class="anime-container">
+                <div class="anime-banner">
+                    <img src="" alt="Anime Poster" class="anime-poster">
                 </div>
-            </section>
-
-            <!-- RECENT EPISODES -->
-            <section class="recent-episodes">
-                <h2>Recent Episodes</h2>
-                <div class="separator"></div>
-                <div class="episodes-container">
-                </div>
-            </section>
-
-            <!-- RECENT ANIMES -->
-            <section class="recent-animes">
-                <h2>Recent Animes</h2>
-                <div class="separator"></div>
-                <div class="animes-container">
-                </div>
-            </section>
-
-            <div class="filter-container">
-                <h3>Filter by Name</h3>
-                <div class="alphabet-nav">
-                    <button>#</button>
-                    <button>A</button>
-                    <button>B</button>
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>H</button>
-                    <button>I</button>
-                    <button>J</button>
-                    <button>K</button>
-                    <button>L</button>
-                    <button>M</button>
-                    <button>N</button>
-                    <button>O</button>
-                    <button>P</button>
-                    <button>Q</button>
-                    <button>R</button>
-                    <button>S</button>
-                    <button>T</button>
-                    <button>U</button>
-                    <button>V</button>
-                    <button>W</button>
-                    <button>X</button>
-                    <button>Y</button>
-                    <button>Z</button>
+                <div class="anime-info">
+                    <h1 class="anime-title">Anime Name</h1>
+                    <div class="anime-details">
+                        <span class="genre">Action, Adventure</span>
+                        <span class="year">2024</span>
+                        <span class="seasons">3 Seasons</span>
+                        <span class="episodes"><span class="number">Episodes</span></span>
+                    </div>
+                    <p class="anime-description">
+                        This is a placeholder description of the anime. It gives a short summary of the story,
+                        characters, and what makes it interesting.
+                    </p>
                 </div>
             </div>
-            
+
+            <div class="season-rating">
+                <span class="season-text">Season</span>
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span class="imdb-score">8.7</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-btn" onclick="previousSeason()">Previous</div>
+                <div class="control-btn" onclick="openSeasonsMenu()">Seasons</div>
+                <div class="control-btn" onclick="nextSeason()">Next</div>
+            </div>
+
+
+
+            <!-- WATCH -->
+            <section class="video-card">
+                <div class="separator"></div>
+                <iframe id="player" src="https://2anime.xyz/embed/one-piece-episode-1" width="100%" height="100%" frameborder="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div id="infoPlayer"></div>
+            </section>
+      
+      
+            <!-- EPISODES -->
+            <section class="episodes">
+                <h2>Episodes</h2>
+                <div class="separator"></div>
+                <div class="episodes-container" id="episodesContainer">
+                </div>
+            </section>
+
     </main>
     <footer>
         <div class="footer-container">
@@ -108,12 +105,13 @@
                 <img src="images/logo.webp" alt="Website Logo">
                 <p>watch free anime online</p>
             </div>
-    
+
             <div class="footer-center">
                 <p>Copyright @<span id="currentyear"></span> Animehubportal. All rights reserved</p>
-                <p class="disclaimer">This website does not store any files on its server. All content is provided by third parties.</p>
+                <p class="disclaimer">This website does not store any files on its server. All content is provided by
+                    third parties.</p>
             </div>
-   
+
             <div class="footer-right">
                 <a href="https://facebook.com" target="_blank">
                     <img src="images/facebook.png" alt="Facebook">
@@ -127,7 +125,7 @@
             </div>
         </div>
     </footer>
-    
+
 </body>
 
 </html>

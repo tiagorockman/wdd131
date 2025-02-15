@@ -273,12 +273,12 @@ section h2 {
 
 .episode-card span{
     position: relative;
-    z-index: 2; /* Ensure it appears above the video */
+    z-index: 2; 
     color: var(--text);
     font-size: 1rem;
     padding: 1rem;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Add background to make text readable */
+    background: rgba(0, 0, 0, 0.5); 
     width: 100%;
 }
 

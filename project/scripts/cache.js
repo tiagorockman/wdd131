@@ -33,3 +33,15 @@ export function setAnimeSelected(animeData) {
 export function getAnimeSelected() {
     return JSON.parse(localStorage.getItem("animeSelected") || {});
 }
+
+export function setEpisodeSelected(episode) {
+    localStorage.setItem("episodeSelected", episode);
+}
+
+export function getEpisodeSelected() {
+    return localStorage.getItem("episodeSelected") || {};
+}
+
+export function removeEpisodeSelected(){
+    localStorage.removeItem("episodeSelected"); 
+}
