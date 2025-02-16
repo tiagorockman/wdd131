@@ -471,6 +471,7 @@ footer {
         padding: 10px;
         position: absolute;
         width: 100%;
+        z-index: 2;
     }
 
     .auth-links {
@@ -486,6 +487,7 @@ footer {
         width: 100%;
         padding: 10px;
         background-color: rgba(78, 77, 78, 0.700);
+        z-index: 3;
     }
 
 
@@ -495,7 +497,7 @@ footer {
     }
 
     .navigation {
-        background-color: rgba(78, 77, 78, 0.700);
+        background-color: rgb(51 49 49 / 96%);
     }
 
 
